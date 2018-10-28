@@ -1,0 +1,33 @@
+<h2>劇場一覧</h2>
+
+<button type="button" class="btn" (click)="onAddTheater()">
+  <fa-icon [icon]="faPlus"></fa-icon>
+  <span>追加</span>
+</button>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>住所</th>
+      <th style="width:50px;">編集</th>
+      <th style="width:50px;">削除</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="theaters">
+    <tr *ngFor="let theater of theaters">
+      <td>{{theater.name}}</td>
+      <td>{{theater.address}}</td>
+      <td>
+        <a routerLink="/theaterDetail/{{theater._id}}">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </a>
+      </td>
+      <td>
+        <a (click)="onDeleteTheater(theater._id)">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

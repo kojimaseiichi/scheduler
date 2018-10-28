@@ -1,0 +1,35 @@
+<h2>予定一覧</h2>
+
+<button type="button" class="btn" (click)="onAddSchedule()">
+  <fa-icon [icon]="faPlus"></fa-icon>
+  <span>追加</span>
+</button>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>舞台役者</th>
+      <th>劇場</th>
+      <th style="width:50px;">編集</th>
+      <th style="width:50px;">削除</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="schedules">
+    <tr *ngFor="let schedule of schedules">
+      <td>{{schedule.date | date:'yyyy/MM/dd'}}</td>
+      <td>{{schedule.actor.lastName}}　{{schedule.actor.firstName}}</td>
+      <td>{{schedule.theater.name}}</td>
+      <td>
+        <a routerLink="/scheduleDetail/{{schedule._id}}">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </a>
+      </td>
+      <td>
+        <a (click)="onDeleteSchedule(schedule._id)">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

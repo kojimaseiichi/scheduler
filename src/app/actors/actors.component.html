@@ -1,0 +1,38 @@
+<h2>役者一覧</h2>
+
+<button type="button" class="btn" (click)="onAddActor()">
+  <fa-icon [icon]="faPlus"></fa-icon>
+  <span>追加</span>
+</button>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>年齢</th>
+      <th>お気に入り</th>
+      <th style="width: 50px;">編集</th>
+      <th style="width: 50px;">削除</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="actors">
+    <tr *ngFor="let actor of actors">
+      <td>{{actor.lastName}}　{{actor.firstName}}</td>
+      <td>{{actor.age}}</td>
+      <td>
+        <app-rating [(rating)]="actor.rating" [readonly]="true"></app-rating>
+      </td>
+      <td>
+        <a routerLink="/actorDetail/{{actor._id}}">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </a>
+      </td>
+      <td>
+        <a (click)="onDeleteActor(actor._id)">
+          <!-- <input type="hidden" value="{{actor._id}}" #actorId> -->
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
