@@ -1,5 +1,4 @@
 <h2>予定編集</h2>
-
 <button type="button" class="btn" (click)="goBack()">戻る</button>
 <div *ngIf="schedule">
   <form class="justify-content-start">
@@ -10,7 +9,7 @@
           <input class="form-control" placeholder="yyyy-mm-dd" name="schedule-name" [(ngModel)]="schedule.date" ngbDatepicker #d="ngbDatepicker"
             (click)="d.toggle()">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><fa-icon [icon]="faCalendar"></fa-icon> </button>
           </div>
         </div>
       </div>
@@ -52,7 +51,6 @@
       <div class="list-group">
         <div *ngFor="let theater of theaterList">
           <button type="button" class="list-group-item list-group-item-action" (click)="modal.close(theater._id)">{{theater.name}}</button>
-          <!-- <input type="hidden" #theaterId value={{theater._id}}> -->
         </div>
       </div>
     </form>
@@ -71,7 +69,6 @@
       <div class="list-group">
         <div *ngFor="let actor of actorList">
           <button type="button" class="list-group-item list-group-item-action" (click)="modal.close(actor._id)">{{actor.lastName}}　{{actor.firstName}} </button>
-          <!-- <input type="hidden" #actorId value={{actor._id}}> -->
         </div>
       </div>
     </form>

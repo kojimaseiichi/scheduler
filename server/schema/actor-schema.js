@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// 舞台役者のスキーマ
 const ActorSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,

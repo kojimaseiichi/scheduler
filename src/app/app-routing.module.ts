@@ -8,15 +8,16 @@ import { TheaterDetailComponent } from './theater-detail/theater-detail.componen
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
 
+// ルーティングを定義
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'schedule', component: ScheduleComponent },
+  { path: 'schedules', component: ScheduleComponent },
   { path: 'actors', component: ActorsComponent },
   { path: 'theaters', component: TheatersComponent },
-  { path: 'scheduleDetail/:id', component: ScheduleDetailComponent },
-  { path: 'actorDetail/:id', component: ActorDetailComponent },
-  { path: 'theaterDetail/:id', component: TheaterDetailComponent }
+  { path: 'schedules/detail/:id', component: ScheduleDetailComponent },
+  { path: 'actors/detail/:id', component: ActorDetailComponent },
+  { path: 'theaters/detail/:id', component: TheaterDetailComponent }
 ];
 
 @NgModule({

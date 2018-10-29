@@ -1,27 +1,39 @@
-import { Injectable, createPlatformFactory } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Actor } from '../models/actor';
-import { of, Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Theater } from '../models/theater';
 import { Schedule } from '../models/schedule';
 
+/**
+ * HTTPヘッダー（更新処理用）
+ */
 const headerOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
 };
 
+/**
+ * DIサービスクラス
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class SchedulerService {
 
+  // 舞台役者操作APIのベースアドレス
   actorsApi = '/api/actors';
+  // 劇場操作APIのベースアドレス
   theaterApi = '/api/theaters';
+  // 予定操作APIのベースアドレス
   schedulesApi = '/api/schedules';
 
-  constructor(
+  /**
+   * コンストラクタ
+   * @param http DI HTTPクライアント
+   */
+  constructor (
     private http: HttpClient
   ) { }
 
@@ -136,6 +148,5 @@ export class SchedulerService {
     const url = `${this.schedulesApi}/${id}`;
     return this.http.delete<Schedule>(url);
   }
-
 
 }

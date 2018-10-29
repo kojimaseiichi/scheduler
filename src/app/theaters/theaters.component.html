@@ -1,10 +1,8 @@
 <h2>劇場一覧</h2>
-
 <button type="button" class="btn" (click)="onAddTheater()">
   <fa-icon [icon]="faPlus"></fa-icon>
   <span>追加</span>
 </button>
-
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -19,7 +17,7 @@
       <td>{{theater.name}}</td>
       <td>{{theater.address}}</td>
       <td>
-        <a routerLink="/theaterDetail/{{theater._id}}">
+        <a routerLink="/theaters/detail/{{theater._id}}">
           <fa-icon [icon]="faEdit"></fa-icon>
         </a>
       </td>

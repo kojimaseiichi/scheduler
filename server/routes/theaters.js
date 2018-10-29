@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const theaterSchema = require('../schema/theater-schema')
 
+// 劇場の登録件数を取得
 router.get('/count', (req, res, next) => {
   console.log('count theaters');
   theaterSchema.count((err, count) => {
@@ -13,6 +14,7 @@ router.get('/count', (req, res, next) => {
   });
 });
 
+// すべての劇場を取得
 router.get('/', (req, res, next) => {
   console.log('get all theaters');
   theaterSchema.find((err, theaters) => {
@@ -23,6 +25,7 @@ router.get('/', (req, res, next) => {
   });
 });
 
+// IDを指定して１個の劇場を取得
 router.get('/:id', (req, res, next) => {
   console.log('get one theater');
   theaterSchema.findById(req.params.id, (err, theater) => {
@@ -33,6 +36,7 @@ router.get('/:id', (req, res, next) => {
   })
 });
 
+// 劇場を新規登録
 router.post('/', (req, res, next) => {
   console.log('add one theater');
   theaterSchema.create(req.body, (err, post) => {
@@ -44,6 +48,7 @@ router.post('/', (req, res, next) => {
   });
 });
 
+// IDを指定して予定を更新
 router.put('/:id', (req, res, next) => {
   console.log('update one theater');
   theaterSchema.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
@@ -54,6 +59,7 @@ router.put('/:id', (req, res, next) => {
   });
 });
 
+// IDを指定して予定を削除
 router.delete('/:id', (req, res, next) => {
   console.log('remove one theater');
   theaterSchema.findByIdAndRemove(req.params.id, (err, post) => {

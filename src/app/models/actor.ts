@@ -1,3 +1,6 @@
+/**
+ * 舞台役者モデル
+ */
 export class Actor {
     _id: string;
     firstName: string;

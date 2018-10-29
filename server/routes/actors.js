@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const actorSchema = require('../schema/actor-schema')
 
+// 登録件数を取得
 router.get('/count', (req, res, next) => {
   console.log('count actors');
   actorSchema.count((err, count) => {
@@ -13,6 +14,7 @@ router.get('/count', (req, res, next) => {
   });
 });
 
+// すべての舞台役者を取得
 router.get('/', (req, res, next) => {
   console.log('get all actors');
   actorSchema.find((err, actors) => {
@@ -23,6 +25,7 @@ router.get('/', (req, res, next) => {
   });
 });
 
+// ID（キー）を指定して１個の舞台役者を取得
 router.get('/:id', (req, res, next) => {
   console.log('get one actor');
   actorSchema.findById(req.params.id, (err, actor) => {
@@ -33,6 +36,8 @@ router.get('/:id', (req, res, next) => {
   })
 });
 
+// 舞台役者を登録
+// IDは自動採番
 router.post('/', (req, res, next) => {
   console.log('add one actor');
   actorSchema.create(req.body, (err, post) => {
@@ -44,6 +49,7 @@ router.post('/', (req, res, next) => {
   });
 });
 
+// IDを指定して舞台役者を更新
 router.put('/:id', (req, res, next) => {
   console.log('update one actor');
   actorSchema.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
@@ -54,6 +60,7 @@ router.put('/:id', (req, res, next) => {
   });
 });
 
+// IDを指定して舞台役者を削除
 router.delete('/:id', (req, res, next) => {
   console.log('remove one actor');
   actorSchema.findByIdAndRemove(req.params.id, (err, post) => {

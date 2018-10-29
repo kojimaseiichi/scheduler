@@ -1,8 +1,5 @@
-<button type="button" class="btn" (click)="goBack()">戻る</button>
-
 <h2>役者編集</h2>
-
-
+<button type="button" class="btn" (click)="goBack()">戻る</button>
 <div *ngIf="actor">
   <form #formCheck="ngForm" class="justify-content-start">
     <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert">
@@ -31,14 +28,11 @@
     <div class="form-group form-row">
       <label class="col-sm-4 col-form-label">お気に入り</label>
       <div class="col-sm-8">
-        <!-- <ngb-rating [(rate)]="actor.rating"></ngb-rating> -->
         <app-rating [(rating)]="actor.rating" [readonly]="false"></app-rating>
-        <!-- <input class="form-control" name="actor-rating" [(ngModel)]="actor.rating"> -->
       </div>
     </div>
     <div class="mx-auto text-center">
       <button class="btn" (click)="execute($event)" [disabled]="formCheck.invalid">{{executionName}}</button>
-      <!-- <button class="btn" (click)="execute($event)">{{executionName}}</button> -->
     </div>
   </form>
 </div>

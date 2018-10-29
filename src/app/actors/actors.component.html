@@ -23,13 +23,12 @@
         <app-rating [(rating)]="actor.rating" [readonly]="true"></app-rating>
       </td>
       <td>
-        <a routerLink="/actorDetail/{{actor._id}}">
+        <a routerLink="/actors/detail/{{actor._id}}">
           <fa-icon [icon]="faEdit"></fa-icon>
         </a>
       </td>
       <td>
         <a (click)="onDeleteActor(actor._id)">
-          <!-- <input type="hidden" value="{{actor._id}}" #actorId> -->
           <fa-icon [icon]="faTrash"></fa-icon>
         </a>
       </td>
