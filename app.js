@@ -31,15 +31,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // ルーターの設定　サービス
-app.use('/schedule/api/actors', actors);
-app.use('/schedule/api/theaters', theaters);
-app.use('/schedule/api/schedules', schedules);
+app.use('/scheduler/api/actors', actors);
+app.use('/scheduler/api/theaters', theaters);
+app.use('/scheduler/api/schedules', schedules);
 
 // ルーターの設定　静的コンテンツの配布
-app.use(express.static(path.join(__dirname, '/dist/scheduler')));
+app.use(express.static(path.join(__dirname, '/dist')));
 
 // 上記以外のGETメソッドはインデックスページを表示するように設定
-app.get('*', (req, res) => {
+app.get('/scheduler/**', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/scheduler/index.html'));
 });
 
