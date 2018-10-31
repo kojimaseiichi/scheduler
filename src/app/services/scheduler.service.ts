@@ -23,11 +23,11 @@ const headerOptions = {
 export class SchedulerService {
 
   // 舞台役者操作APIのベースアドレス
-  actorsApi = '/api/actors';
+  actorsApi = '/schedule/api/actors';
   // 劇場操作APIのベースアドレス
-  theaterApi = '/api/theaters';
+  theaterApi = '/schedule/api/theaters';
   // 予定操作APIのベースアドレス
-  schedulesApi = '/api/schedules';
+  schedulesApi = '/schedule/api/schedules';
 
   /**
    * コンストラクタ

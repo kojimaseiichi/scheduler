@@ -31,9 +31,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // ルーターの設定　サービス
-app.use('/api/actors', actors);
-app.use('/api/theaters', theaters);
-app.use('/api/schedules', schedules);
+app.use('/schedule/api/actors', actors);
+app.use('/schedule/api/theaters', theaters);
+app.use('/schedule/api/schedules', schedules);
 
 // ルーターの設定　静的コンテンツの配布
 app.use(express.static(path.join(__dirname, '/dist/scheduler')));
